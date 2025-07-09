@@ -1,7 +1,12 @@
+# CRUD de Máquinas Agrícolas com Laravel
 
-# Laravel 12 (Início)
+> Projeto de estudo com Laravel, aplicando as operações básicas de banco de dados (Create, Read, Update, Delete) com tema voltado à agricultura.
 
-Decidir melhorar minha habilidades com PHP e estudar o framework Laravel. Vou falar um pouco sobre o que aprendi até agora.
+## 🚀 Tecnologias Utilizadas
+
+- PHP
+- Laravel
+- MySQL
 
 |O que aprendi|
 |---|
@@ -26,7 +31,7 @@ No arquivo:
 ``` http
     config/database.php
 ```
-fornece configurações já definidas para algums banco de dados.
+fornece configurações já definidas para alguns banco de dados.
 
 Para configurar o seu banco de dados, basta ir no arquivo:
 ``` http
@@ -51,7 +56,7 @@ Em seguida vá no arquivo:
 ``` http
     database/migrations/create_nome_tabela.php
 ```
-e configure a tabela. Na criação dela pode ser colocada os campos desejados no método 'up'. No meu projeto fiz:
+e configure a tabela. Na criação dela podem ser colocados os campos desejados no método 'up'. No meu projeto fiz:
 ``` PHP
     public function up(): void
     {
@@ -70,7 +75,7 @@ Durante esse mini projeto eu tive dois problemas, um que realmente afetava no de
 
 ### Problema 1: Erro no sql
 
-Logo quando tentei executar o comando para criar as migrations, recebi o erro: **SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 1000 bytes**. Que de forma resumida, o tamanho do dado superava o tamanho que o MySql suportava. Pra resolver isso, recorri ao ChatGPT, após uma esplicação sobre este erro, ele forneceu uma solução. Basicamente eu precisei ir até onde era definido o tamanho padrão das strings varchar ao criar um campo pelo migration, no arquivo: 
+Logo quando tentei executar o comando para criar as migrations, recebi o erro: **SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 1000 bytes**. Que de forma resumida, o tamanho do dado superava o tamanho que o MySql suportava. Pra resolver isso, recorri ao ChatGPT, após uma explicação sobre este erro, ele forneceu uma solução. Basicamente eu precisei ir até onde era definido o tamanho padrão das strings varchar ao criar um campo pelo migration, no arquivo: 
 ``` http
     vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php
 ```
@@ -87,7 +92,7 @@ Não sei se era a melhor opção, mas resolveu.
 
 ### Problema 2: Timezone errada
 
-Esse não era algo que afetava na execução, mas poderia afetar no gerenciamento dos dados. A timezone estava como 'UTC', dava um adiantamento de 3 horas do horário de Brasília, se eu criasse um registro às 20 horas, no banco de dados era registrado como que criado às 23 horas.
+Esse não era algo que afetava na execução, mas poderia afetar no gerenciamento dos dados. A timezone estava como 'UTC', dava um adiantamento de 3 horas do horário de Brasília, se eu criasse um registro às 20 horas, no banco de dados era registrado como se tivesse sido criado às 23 horas.
 
 Para resolver isso fui até o arquivo:
 ``` http
@@ -101,7 +106,7 @@ na linha 68, na parte de timezone apenas substitui ela da seguinte forma:
 ```
 # Seeder
 
-Seeder é uma classe para adicionar dados inicias ou de testes no banco de dados.
+Seeder é uma classe para adicionar dados iniciais ou de testes no banco de dados.
 
 Código de criação:
 ``` bash
@@ -149,7 +154,7 @@ Comando para executar seeders:
 
 # Factory
 
-Factory gera uma quantidade valores aleatórios para preencher o banco de dados.
+Factory gera uma quantidade de valores aleatórios para preencher o banco de dados.
 
 Comando para criar factory: 
 ``` bash
@@ -178,7 +183,7 @@ Para executar, no arquivo da seeder, após:
 ```
 Adiciona: 
 ``` PHP
-    Machine::factory(count: 100)->create(); // o 100 é o número de registros a serem criados
+    Machine::factory(count: 100)->create(); // 100 é a quantidade de registros que será criada
 ```
 
 # CRUD
@@ -271,3 +276,40 @@ Esse comando cria as seguintes rotas:
 |GET|/machines/{machine}/edit|edit|machines.edit|
 |PUT/PATCH|/machines/{machine}|update|machines.update|
 |DELETE|/machines/{machine}|destroy|machines.destroy|
+
+# 🧪 Como Executar o Projeto
+## Clone este repositório:
+``` bash
+git clone [https://github.com/seu-usuario/seu-repo.git](https://github.com/Pedro-R1beiro/laravel-crud-basico.git)
+```
+
+## Acesse o diretório:
+``` bash
+cd nome-do-projeto
+```
+
+## Instale as dependências:
+``` bash
+composer install
+```
+
+## Copie o arquivo .env.example para .env:
+``` bash
+cp .env.example .env
+```
+
+## Configure seu banco de dados no .env
+
+## Rode as migrations e seeders:
+``` bash
+php artisan migrate --seed
+```
+
+## Inicie o servidor local:
+
+``` bash
+php artisan serve
+```
+
+# 👤 Autor
+>Pedro Ribeiro - [@Pedro-R1beiro](https://github.com/Pedro-R1beiro)
