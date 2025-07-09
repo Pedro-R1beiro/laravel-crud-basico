@@ -280,7 +280,7 @@ Esse comando cria as seguintes rotas:
 # 🧪 Como Executar o Projeto
 ### Clone este repositório:
 ``` bash
-git clone [https://github.com/seu-usuario/seu-repo.git](https://github.com/Pedro-R1beiro/laravel-crud-basico.git)
+git clone https://github.com/Pedro-R1beiro/laravel-crud-basico.git
 ```
 
 ### Acesse o diretório:
