@@ -278,34 +278,34 @@ Esse comando cria as seguintes rotas:
 |DELETE|/machines/{machine}|destroy|machines.destroy|
 
 # 🧪 Como Executar o Projeto
-## Clone este repositório:
+### Clone este repositório:
 ``` bash
 git clone [https://github.com/seu-usuario/seu-repo.git](https://github.com/Pedro-R1beiro/laravel-crud-basico.git)
 ```
 
-## Acesse o diretório:
+### Acesse o diretório:
 ``` bash
 cd nome-do-projeto
 ```
 
-## Instale as dependências:
+### Instale as dependências:
 ``` bash
 composer install
 ```
 
-## Copie o arquivo .env.example para .env:
+### Copie o arquivo .env.example para .env:
 ``` bash
 cp .env.example .env
 ```
 
-## Configure seu banco de dados no .env
+### Configure seu banco de dados no .env
 
-## Rode as migrations e seeders:
+### Rode as migrations e seeders:
 ``` bash
 php artisan migrate --seed
 ```
 
-## Inicie o servidor local:
+### Inicie o servidor local:
 
 ``` bash
 php artisan serve
